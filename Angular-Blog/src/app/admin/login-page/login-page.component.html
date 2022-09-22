@@ -1,1 +1,46 @@
-<p>login-page works!</p>
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+  <h2>Вход в администраторският панел</h2>
+  <div
+    [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}"
+    class="form-control">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email">
+    <div
+      *ngIf="form.get('email')?.touched && form.get('email')?.invalid"
+      class="validation">
+      <small *ngIf="form.get('email')?.errors?.['required']">
+        Попълнете полето email
+      </small>
+      <small *ngIf="form.get('email')?.errors?.['email']">
+        Полето email трябва да е попълнено с email формат
+      </small>
+    </div>
+  </div>
+  <div
+    [ngClass]="{invalid: form.get('password')?.touched && form.get('password')?.invalid}"
+    class="form-control">
+    <label for="password">Password</label>
+    <input id="password" type="password" formControlName="password">
+    <div
+      class="validation"
+      *ngIf="form.get('password')?.touched && form.get('password')?.invalid"
+    >
+      <small *ngIf="form.get('password')?.errors?.['required']">
+        Въведете парола
+      </small>
+      <small *ngIf="form.get('password')?.errors?.['minlength'] &&
+        form.get('password')?.errors?.['minlength']['requiredLength']">
+          Паролата трябва да е поне {{form.get('password')?.errors?.['minlength']['requiredLength']}} символа!
+          В момента {{form.get('password')?.errors?.['minlength']['actualLength']}}
+        </small>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="form.invalid"
+  >
+    Вход</button>
+
+</form>
