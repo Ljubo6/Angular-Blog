@@ -1,1 +1,45 @@
-<p>create-page works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h1>Генериране на нов пост</h1>
+  <div
+      [ngClass]="{invalid: form.get('title')?.touched && form.get('title')?.invalid}"
+      class="form-control"
+  >
+      <label for="title">Заглавие на поста</label>
+      <input id="title" type="text" formControlName="title">
+    <div
+      *ngIf="form.get('title')?.touched && form.get('title')?.invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('title')?.errors?.['required']">
+        Напишете заглавие на полето
+      </small>
+    </div>
+
+    <div class="form-control">
+      <label>Съдържание на поста:</label>
+    </div>
+  </div>
+
+
+
+    <div
+        [ngClass]="{invalid: form.get('author')?.touched && form.get('author')?.invalid}"
+        class="form-control"
+    >
+        <label for="author">Автор на поста</label>
+        <input id="author" type="text" formControlName="author">
+      <div
+          *ngIf="form.get('author')?.touched && form.get('author')?.invalid"
+          class="validation"
+      >
+          <small *ngIf="form.get('author')?.errors?.['required']">
+          Напишете заглавие на автора
+        </small>
+      </div>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-block btn-dark"
+    [disabled]="form.invalid"
+  >Създай пост</button>
+</form>
