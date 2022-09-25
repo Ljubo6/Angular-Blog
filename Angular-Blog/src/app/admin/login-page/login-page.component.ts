@@ -22,11 +22,14 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe({
       complete(): void {
-      }, error(err: any): void {
+      },
+      error(err: any): void {
       },
       next: (params:Params) => {
         if (params['loginAgain']){
           this.message = 'Въведете данни'
+        }else if(params['authFailed']){
+          this.message = 'Сесията е изтекла.Въведете данните отново'
         }
       }
     })
