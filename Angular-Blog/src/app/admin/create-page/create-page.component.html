@@ -14,14 +14,12 @@
         Напишете заглавие на полето
       </small>
     </div>
+ </div>
 
-    <div class="form-control">
-      <label>Съдържание на поста:</label>
-      <quill-editor formControlName="text"></quill-editor>
-    </div>
+  <div class="form-control">
+    <label>Съдържание на поста:</label>
+    <quill-editor formControlName="text"></quill-editor>
   </div>
-
-
 
     <div
         [ngClass]="{invalid: form.get('author')?.touched && form.get('author')?.invalid}"
