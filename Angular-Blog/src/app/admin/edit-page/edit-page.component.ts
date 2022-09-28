@@ -4,6 +4,7 @@ import {PostsService} from "../../shared/posts.service";
 import {Subscription, switchMap} from "rxjs";
 import {Post} from "../../shared/interfaces";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AlertService} from "../shared/services/alert.service";
 
 @Component({
   selector: 'app-edit-page',
@@ -17,7 +18,8 @@ export class EditPageComponent implements OnInit, OnDestroy {
   uSub!: Subscription
   constructor(
     private route:ActivatedRoute,
-    private postService: PostsService
+    private postService: PostsService,
+    private alert: AlertService
     ) { }
 
   ngOnInit(): void {
@@ -55,6 +57,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
     }).subscribe({
       next: () => {
         this.submitted = false
+        this.alert.success('Поста беше обновен')
       }
     })
   }
