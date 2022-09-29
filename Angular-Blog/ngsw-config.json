@@ -1,5 +1,6 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -33,11 +34,11 @@
     {
       "name": "firebase-posts",
       "urls": [
-          "https://angular-blog-8dbfb-default-rtdb.europe-west1.firebasedatabase.app/**"
+        "https://angular-blog-8dbfb-default-rtdb.europe-west1.firebasedatabase.app/**"
       ],
       "cacheConfig": {
-        "maxSixe": 5,
-        "mxAge" : "3600"
+        "maxSize": 5,
+        "maxAge": "3600"
       }
     }
   ]
