@@ -34,7 +34,7 @@
     {
       "name": "firebase-posts",
       "urls": [
-        "https://angular-blog-8dbfb-default-rtdb.europe-west1.firebasedatabase.app/**"
+        "https://angular-blog-53030-default-rtdb.europe-west1.firebasedatabase.app/**"
       ],
       "cacheConfig": {
         "maxSize": 5,
